@@ -30,7 +30,7 @@ public class Array {
     }
 }*/
 //check whether array of integers contain duplicate elements or not .If yes print the index of duplicate element .
-import java.util.Scanner;
+/*import java.util.Scanner;
 public class Array{
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
@@ -49,6 +49,44 @@ public class Array{
         }
         if(f==0){
             System.out.println("duplicate elements not found");
+        }
+    }
+}*/
+//create arr[4][5] in which 4 students and their marks in 5 subject are present.
+//a. find average of each subject.
+//b. find average of each student.
+//c. display no. of students scored below 50.
+//d. display the scores of every student.
+import java.util.Scanner;
+public class Array{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int arr[][]=new int[4][5];
+        int c=0;
+        for(int i=0;i<4;i++){
+            int s=0;
+            for(int j=0;j<5;j++){
+                arr[i][j]=sc.nextInt();
+                s+=arr[i][j];
+            }
+            System.out.println("average of student "+(i+1)+ " is "+ s/5.0);
+            if((s/5.0)<50.0){
+                c++;
+            }
+        }
+        System.out.println("total no. of students scored below 50 in their average is "+c);
+        for(int j=0;j<5;j++){
+             int s1=0;
+            for(int i=0;i<4;i++){
+                s1+=arr[i][j];
+            }
+            System.out.println("average of subject "+(j+1)+ " is "+ s1/4.0);
+        }
+        for(int i=0;i<4;i++){
+            System.out.println("scores of student "+(i+1)+"are ");
+            for(int j=0;j<5;j++){
+                System.out.println(arr[i][j]);
+            }
         }
     }
 }
