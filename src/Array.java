@@ -51,7 +51,7 @@ public class Array{
             System.out.println("duplicate elements not found");
         }
     }
-}*/
+}
 //create arr[4][5] in which 4 students and their marks in 5 subject are present.
 //a. find average of each subject.
 //b. find average of each student.
@@ -89,5 +89,63 @@ public class Array{
             }
         }
     }
+}*/
+/* create an array of 5 students and print the record of those student who got the highest marks
+and who got the lowest marks and members of class are private.
+ */
+import java.util.Scanner;
+class Student {
+    private int rollno;
+     private String name;
+    private int marks;
+    public Student(int rollno,String name, int marks)
+    {
+        this.name = name;
+        this.marks = marks;
+        this.rollno= rollno;
+    }
+    public int getRollno() {
+        return rollno;
+    }
+    public String getName() {
+        return name;
+    }
+    public int getMarks() {
+        return marks;
+    }
 }
+public class Array {
+    public static void main(String[] args) {
+        // creating an array that will hold 5 student objects
+        Student arr[] = new Student[5];
+        // initializing the array with Student object
+        Scanner s = new Scanner(System.in);
+        for (int i = 0; i <arr.length ; i++) {
+            arr[i]= new Student(s.nextInt(),s.next(),s.nextInt()); // object creation
+        }
+        // traverse/print all the objects value stored in array
+        for (int i = 0; i <arr.length ; i++) {
+            System.out.println(arr[i].getRollno() + "\t" + arr[i].getName()+ "\t"+ arr[i].getMarks());
+        }
+        int m=arr[0].getMarks();
+        int n=arr[0].getMarks();
+        for(int i=1;i<arr.length;i++){
+            m=Math.max(m,arr[i].getMarks());
+            n=Math.min(n,arr[i].getMarks());
+        }
+        System.out.println("highest marks is "+ m);
+        System.out.println("lowest marks is "+ n);
+        System.out.println("record of lowest and highest marks student are \n");
+        for(int i=0;i<arr.length;i++){
+            if(arr[i].getMarks()==m){
+                System.out.println(arr[i].getRollno() + "\t" + arr[i].getName()+ "\t"+ arr[i].getMarks());
+            }
+            if(arr[i].getMarks()==n){
+                System.out.println(arr[i].getRollno() + "\t" + arr[i].getName()+ "\t"+ arr[i].getMarks());
+            }
+        }
+
+    }
+}
+
 
