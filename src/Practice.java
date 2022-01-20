@@ -1,5 +1,5 @@
 //Q. count trailing zeroes in factorial of a number.
-import java.util.Scanner;
+/*import java.util.Scanner;
 public class Practice {
     public static void main(String[] args) {
      Scanner sc=new Scanner(System.in);
@@ -19,6 +19,20 @@ public class Practice {
             else
                 break;
             f=f/10;
+        }
+        System.out.println("Trailing zeroes = "+c);
+    }
+}*/
+//above question in more efficient way.
+import java.util.Scanner;
+public class Practice {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number");
+        int n=sc.nextInt();
+        int c=0;
+        for(int i=5;n/i>=1;i*=5){
+            c+=n/i;
         }
         System.out.println("Trailing zeroes = "+c);
     }
