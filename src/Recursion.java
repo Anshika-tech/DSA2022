@@ -46,7 +46,7 @@ public class Recursion {
     }
 }*/
 //sum of elements of an array by recursion.
-import java.util.Scanner;
+/*import java.util.Scanner;
 public class Recursion {
     public static int sum(int[] a,int b){
         if(b==0){
@@ -63,4 +63,25 @@ public class Recursion {
         }
         System.out.println(sum(a,n-1));
     }
+}*/
+//create an array of 5 elements and search value(2) in the given array and print the first occurrence(index) of search value by recursion.
+import java.util.Scanner;
+public class Recursion {
+    public static int find(int[] a,int ci,int size ,int sv){
+       if(size==ci){
+            return -1;
+        }
+        if(a[ci]==sv)
+            return ci;
+        return find(a,ci+1,size,sv);
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a[]=new int[]{1,2,4,2,6};
+        int n=a.length;
+        System.out.println("enter the search value");
+        int sv=sc.nextInt();
+        System.out.println(find(a,0,n,sv));
+    }
 }
+
