@@ -15,7 +15,7 @@ public class Recursion {
     }
 }*/
 //write the program that prints 1 to n number in increasing order by recursion.
-import java.util.Scanner;
+/*import java.util.Scanner;
 public class Recursion {
     public static void number(int n){
         if(n<=0){
@@ -29,5 +29,19 @@ public class Recursion {
         int n=sc.nextInt();
         number(n);
     }
+}*/
+//count the no. of digits in a number by recursion.
+import java.util.Scanner;
+public class Recursion {
+    public static int number(int n){
+        if(n/10==0){
+            return 1;
+        }
+        return 1+number(n/10);
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println(number(n));
+    }
 }
-
