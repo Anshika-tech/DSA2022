@@ -87,7 +87,7 @@ public class Recursion {
 //to find factorial.
 //         Head Recursion
 //In head recursion we produce the result when we navigate from base condition to main method.
-import java.util.Scanner;
+/*import java.util.Scanner;
 public class Recursion{
     public static int fact(int n){
         if(n>0){
@@ -101,6 +101,23 @@ public class Recursion{
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
         System.out.println(fact(n));
+    }
+}*/
+//            Tail recursion
+//In tail recursion we produce the result when we navigate from main method to base condition
+import java.util.Scanner;
+public class Recursion {
+    public static void fact(int n,int sum){
+        if(n==1){
+            System.out.println(sum);
+            return;
+        }
+        fact(n-1,sum*n);
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        fact(n,1);
     }
 }
 
