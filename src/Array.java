@@ -93,7 +93,7 @@ public class Array{
 /* create an array of 5 students and print the record of those student who got the highest marks
 and who got the lowest marks and members of class are private.
  */
-import java.util.Scanner;
+/*import java.util.Scanner;
 class Student {
     private int rollno;
      private String name;
@@ -146,6 +146,84 @@ public class Array {
         }
 
     }
+}*/
+// traversing ,insertion , searching, deletion in an array.
+import java.util.Scanner;
+public class Array{
+    int arr[]=null;
+    public Array(){
+        arr=new int[5];
+        for(int i=0;i<arr.length;i++){
+            arr[i]=Integer.MIN_VALUE;
+        }
+    }
+    //insertion in an array
+    public void insert(int index,int value){
+        try{
+            if(arr[index]==Integer.MIN_VALUE)
+                arr[index]=value;
+            else
+                System.out.println("already filled");
+        }catch(ArrayIndexOutOfBoundsException obj){
+            System.out.println("invalid index");
+        }
+
+    }
+    //method to traverse the array.
+    //print all the values in array.
+    public void traverse(){
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+    //method to print specific index value
+    public void indexvalue(int index){
+        try{
+            System.out.println(arr[index]);
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("invalid index");
+        }
+    }
+    public void search(int a){
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==a) {
+                System.out.println("value found");
+                return;
+            }
+        }
+        System.out.println("no matched found");
+    }
+    //method to delete a value from array
+    public void delete(int index){
+        try{
+            arr[index]=Integer.MIN_VALUE;
+        }catch(ArrayIndexOutOfBoundsException obj){
+            System.out.println("out of range");
+        }
+    }
+    //delete the complete Array
+    public void deleteArray(){
+        int arr[]={10,20,30};
+        this.arr=null;
+    }
+    public static void main(String[] args) {
+        Array obj=new Array();
+        System.out.println("before insertion ");
+        obj.traverse();
+        obj.insert(1,20);
+        obj.insert(2,30);
+        obj.insert(4,50);
+        System.out.println("\n after insertion");
+        obj.traverse();
+        obj.delete(1);
+        System.out.println("\n after deletion");
+        obj.traverse();
+        System.out.println("\n search the value");
+        obj.search(30);
+        System.out.println("\n enter the value of given index");
+        obj.indexvalue(4);
+    }
 }
+
 
 
