@@ -65,7 +65,7 @@ public class Recursion {
     }
 }*/
 //create an array of 5 elements and search value(2) in the given array and print the first occurrence(index) of search value by recursion.
-import java.util.Scanner;
+/*import java.util.Scanner;
 public class Recursion {
     public static int find(int[] a,int ci,int size ,int sv){
        if(size==ci){
@@ -83,5 +83,25 @@ public class Recursion {
         int sv=sc.nextInt();
         System.out.println(find(a,0,n,sv));
     }
+}*/
+//to find factorial.
+//         Head Recursion
+//In head recursion we produce the result when we navigate from base condition to main method.
+import java.util.Scanner;
+public class Recursion{
+    public static int fact(int n){
+        if(n>0){
+            int a=fact(n-1);
+            int myanswer=n*a;
+            return myanswer;
+        }
+        return 1;
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println(fact(n));
+    }
 }
+
 
