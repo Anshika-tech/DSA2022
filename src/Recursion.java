@@ -105,7 +105,7 @@ public class Recursion{
 }*/
 //            Tail recursion
 //In tail recursion we produce the result when we navigate from main method to base condition
-import java.util.Scanner;
+/*import java.util.Scanner;
 public class Recursion {
     public static void fact(int n,int sum){
         if(n==1){
@@ -118,6 +118,26 @@ public class Recursion {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
         fact(n,1);
+    }
+}*/
+//Replace a character with another character in string by recursion.
+public class Recursion{
+    public static void replace1(char c1,char c2,String str,int i){
+        if(i==str.length()){
+            System.out.println(str);
+            return;
+        }
+        if(str.charAt(i)==c1){
+           str=str.substring(0,i)+c2+str.substring(i+1);
+        }
+        replace1(c1,c2,str,i+1);
+
+    }
+    public static void main(String[] args) {
+        String str="abaca";
+        char c1='a';
+        char c2='x';
+        replace1(c1,c2,str,0);
     }
 }
 
