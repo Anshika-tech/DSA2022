@@ -107,6 +107,21 @@ public class Linkedlist{
         }
         last.next=new_node;
     }
+    public void delete(int key){
+        Node temp=head,prev=null;
+        if(temp!=null && temp.data==key){
+            head=temp.next;
+            return;
+        }
+        while(temp!=null && temp.data!=key){
+            prev=temp;
+            temp=temp.next;
+        }
+        if(temp == null) {
+            return;
+        }
+        prev.next=temp.next;
+    }
     public static void main(String[] args) {
         Linkedlist l1=new Linkedlist();
         l1.head=new Node(2);
@@ -120,6 +135,9 @@ public class Linkedlist{
         l1.display();
         System.out.println("insertion at the end");
         l1.append(8);
+        l1.display();
+        System.out.println("after deletion of a key");
+        l1.delete(3);
         l1.display();
     }
 }
