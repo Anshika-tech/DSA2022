@@ -64,7 +64,7 @@ public class Linkedlist{
          l1.insert(4);
          l1.display();
     }
-}*/
+}
 //2.After a given node
 //3.At the end of the linked list.
 public class Linkedlist{
@@ -138,6 +138,52 @@ public class Linkedlist{
         l1.display();
         System.out.println("after deletion of a key");
         l1.delete(3);
+        l1.display();
+    }
+}*/
+//count the length of linked list.
+import java.util.Scanner;
+class Node{
+    int data;
+    Node next;
+    Node(int d){
+        data=d;
+    }
+}
+public class Linkedlist{
+    Node head;
+    public void insert(int new_data){
+        Node new_node=new Node(new_data);
+        if(head==null){
+            head=new Node(new_data);
+            return;
+        }
+        new_node.next=null;
+        Node last=head;
+        while(last.next!=null){
+            last=last.next;
+        }
+        last.next=new_node;
+    }
+    public void display(){
+        int c=0;
+        Node temp=head;
+        while(temp.data!=-1){
+            c++;
+            temp=temp.next;
+        }
+        System.out.println("length of linked list is "+c);
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        Linkedlist l1=new Linkedlist();
+        l1.insert(sc.nextInt());
+        l1.insert(sc.nextInt());
+        l1.insert(sc.nextInt());
+        l1.insert(sc.nextInt());
+        l1.insert(sc.nextInt());
+        l1.insert(sc.nextInt());
+        l1.insert(sc.nextInt());
         l1.display();
     }
 }
