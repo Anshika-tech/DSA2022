@@ -142,7 +142,7 @@ public class Linkedlist{
     }
 }*/
 //count the length of linked list.
-import java.util.Scanner;
+/*import java.util.Scanner;
 class Node{
     int data;
     Node next;
@@ -185,5 +185,48 @@ public class Linkedlist{
         l1.insert(sc.nextInt());
         l1.insert(sc.nextInt());
         l1.display();
+    }
+}*/
+//search an element in linked list.
+import java.util.Scanner;
+class Node{
+    int data;
+    Node next;
+    Node(int d1){
+        data=d1;
+    }
+}
+public class Linkedlist{
+    Node head;
+    public void push(int x){
+        Node d=new Node(x);
+        d.next=head;
+        head=d;
+
+    }
+    public boolean search(int c){
+        Node n=head;
+        while(n!=null){
+            if(n.data==c){
+                return true;
+            }
+            n=n.next;
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        Linkedlist l1=new Linkedlist();
+        l1.push(sc.nextInt());
+        l1.push(sc.nextInt());
+        l1.push(sc.nextInt());
+        l1.push(sc.nextInt());
+        l1.push(sc.nextInt());
+        System.out.println("enter the searching element \n");
+        if(l1.search(sc.nextInt())){
+            System.out.print("element present in linked list");
+        }
+        else
+            System.out.print("element is not present in linked list");
     }
 }
