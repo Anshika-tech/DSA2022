@@ -186,7 +186,7 @@ public class Linkedlist{
         l1.insert(sc.nextInt());
         l1.display();
     }
-}*/
+}
 //search an element in linked list.
 import java.util.Scanner;
 class Node{
@@ -229,4 +229,43 @@ public class Linkedlist{
         else
             System.out.print("element is not present in linked list");
     }
+}*/
+//display the nth node data of linked list.
+import java.util.Scanner;
+class Node{
+    int data;
+    Node next;
+    Node(int d1) {
+        data = d1;
+    }
 }
+public class Linkedlist{
+    Node head;
+    public void push(int x){
+        Node d=new Node(x);
+        d.next=head;
+        head=d;
+    }
+    public int  find_node(Node head,int index,int c){
+
+        if(head==null){
+            return -1;
+        }
+        if(c==index){
+            return head.data;
+        }
+        return find_node(head.next,index,c+1);
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        Linkedlist l1=new Linkedlist();
+        l1.push(11);
+        l1.push(12);
+        l1.push(13);
+        l1.push(15);
+        l1.push(17);
+        System.out.println("enter the index of node");
+        System.out.println(l1.find_node(l1.head,sc.nextInt(),0));
+    }
+}
+
