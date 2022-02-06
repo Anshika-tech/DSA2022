@@ -119,7 +119,7 @@ public class Recursion {
         int n=sc.nextInt();
         fact(n,1);
     }
-}*/
+}
 //Replace a character with another character in string by recursion.
 public class Recursion{
     public static void replace1(char c1,char c2,String str,int i){
@@ -140,5 +140,43 @@ public class Recursion{
         replace1(c1,c2,str,0);
     }
 }
+import java.util.Scanner;
+public class Recursion{
+    public static void duplicate(String str,int i){
+        if(i==str.length()){
+            System.out.println(str);
+            return;
+        }
+        if(str.charAt(i)==str.charAt(i+1)){
+            str=str.substring(0,i)+str.substring(i+1);
+        }
+        duplicate(str,i+1);
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str= sc.nextLine();
+        duplicate(str,0);
+    }
+}
+*/
+//convert a decimal number into binary
+import java.util.Scanner;
+public class Recursion{
+    public static int binary(int n){
+       int b;
+        if(n==0){
+            return 0;
+        }
+       return n%2+10*binary(n/2);
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+       int n=sc.nextInt();
+        System.out.println(binary(n));
+
+    }
+}
+
+
 
 
