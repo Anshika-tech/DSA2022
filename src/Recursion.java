@@ -158,7 +158,7 @@ public class Recursion{
         duplicate(str,0);
     }
 }
-*/
+
 //convert a decimal number into binary
 import java.util.Scanner;
 public class Recursion{
@@ -175,7 +175,29 @@ public class Recursion{
         System.out.println(binary(n));
 
     }
+}*/
+//by using recursion search an element in an array.
+import java.util.Scanner;
+public class Recursion{
+    static boolean search(int a[],int c,int sv){
+       if(c==a.length)
+           return false;
+       if(a[c]==sv)
+           return true;
+       return search(a,c+1,sv);
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+          int a[]=new int[6];
+          for(int i=0;i<a.length;i++){
+              a[i]=sc.nextInt();
+          }
+        System.out.println("enter the search value");
+          int sv=sc.nextInt();
+        System.out.println(search(a,0,sv));
+    }
 }
+
 
 
 
