@@ -1,6 +1,6 @@
 //Circular linked list concept
 //traverse,insert into empty linked list,insert at begining,insert after a given node,insert at the end.
-class Node{
+/*class Node{
     Node next;
     int data;
 }
@@ -85,5 +85,87 @@ public class CircularLL {
         System.out.println("add element after the searched item");
         last =l1.addoneafter(last,8,9);
         l1.traverse(last);
+    }
+}*/
+//deletion of a node from circular linked list.
+public class CircularLL{
+    static class Node{
+        Node next;
+        int data;
+    }
+    static void printList(Node head){
+        Node temp=head;
+        if(head!=null)
+         do{
+             System.out.println(temp.data + " ");
+             temp=temp.next;
+         }while(temp!=head);
+        System.out.println("\n");
+    }
+    static Node push(Node head,int data){
+        Node t=new Node();
+        t.data=data;
+        t.next=head;
+        if(head!=null){
+            Node p=head;
+            while(p.next!=head){
+                p=p.next;
+            }
+            p.next=t;
+        }
+        else
+            t.next=t;
+        head=t;
+        return head;
+
+    }
+    static Node deleteNode(Node head,int key){
+        if(head==null){
+            return null;
+        }
+        Node curr=head,prev=new Node();
+        while(curr.data!=key){
+            if(curr.next==head){
+                System.out.println("given node is not found in linked list");
+                break;
+            }
+            prev=curr;
+            curr=curr.next;
+        }
+        //if linked list contain only one node
+        if(curr==head&&curr.next==head){
+            head=null;
+            return head;
+        }
+        //if key found on head
+        if(curr==head){
+            prev=head;
+            while(prev.next!=head){
+                prev=prev.next;
+            }
+            head=curr.next;
+            prev.next=head;
+        }
+        //if key found at last node
+        else if(curr.next==head){
+            prev.next=head;
+        }
+        //if key found at middle.
+        else{
+            prev.next=curr.next;
+        }
+        return head;
+    }
+    public static void main(String[] args) {
+       Node head=null;
+       head=push(head,2);
+       head=push(head,5);
+       head=push(head,6);
+       head=push(head,8);
+       head=push(head,9);
+       System.out.println("List before deletion :");
+       printList(head);
+       head=deleteNode(head,6);
+       printList(head);
     }
 }
