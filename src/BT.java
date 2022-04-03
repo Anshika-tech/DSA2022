@@ -1,5 +1,5 @@
 //-Sequential representation implementation of binary tree by array.
-import java.io.*;
+/*import java.io.*;
 import java.lang.*;
 import java.util.*;
 public class BT {
@@ -41,5 +41,66 @@ public class BT {
         obj.set_Right("E",2);
         obj.set_Right("F",3);
         obj.print_Tree();
+    }
+}
+ */
+//Binary tree traversal (linked list)
+//preorder ,inorder,postorder.
+class Node{
+    int key;
+    Node left;
+    Node Right;
+    public Node(int item){
+        key=item;
+    }
+}
+public class BT{
+    Node root;
+     public static void preorder(Node node){
+        if(node==null){
+            return;
+        }
+        System.out.print(node.key+" ");
+        preorder(node.left);
+        preorder(node.Right);
+    }
+    public void inorder(Node node){
+        if(node==null){
+            return;
+        }
+        inorder(node.left);
+        System.out.print(node.key+" ");
+        inorder(node.Right);
+    }
+    public void postorder(Node node){
+        if(node==null){
+            return;
+        }
+        postorder(node.left);
+        postorder(node.Right);
+        System.out.print(node.key+" ");
+    }
+    void preorder() {
+        preorder(root);
+    }
+    void inorder(){
+         inorder(root);
+    }
+    void postorder(){
+         postorder(root);
+    }
+    public static void main(String[] args) {
+        BT tree = new BT();
+        tree.root = new Node(1);
+        tree.root.left=new Node(2);
+        tree.root.Right=new Node(3);
+        tree.root.left.left=new Node(4);
+        tree.root.left.Right=new Node(5);
+        System.out.println("preorder traversal");
+        tree.preorder();
+        System.out.println("\ninorder traversal");
+        tree.inorder();
+        System.out.println("\npostorder traversal");
+        tree.postorder();
     }
 }
