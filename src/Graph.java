@@ -1,5 +1,5 @@
 //implementation of graph by list.
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 public class Graph {
     static void addEdge(ArrayList<ArrayList<Integer>>obj,int x,int y){
         obj.get(x).add(y);
@@ -28,5 +28,49 @@ public class Graph {
         addEdge(obj,0,4);
         addEdge(obj,4,3);
         printGraph(obj);
+    }
+}*/
+//Breadth first search.
+import java.util.*;
+public class Graph{
+    private int V;
+    private LinkedList<Integer> adj[];
+     public Graph(int v){
+         V=v;
+         adj=new LinkedList[v];
+         for(int i=0;i<v;i++){
+             adj[i]=new LinkedList();
+         }
+     }
+     void addedge(int u,int v){
+         adj[u].add(v);
+     }
+     void BFS(int s){
+         boolean visited[]=new boolean[V];
+         visited[s]=true;
+         LinkedList<Integer> queue=new LinkedList<Integer>();
+         queue.add(s);
+         while(queue.size()!=0){
+            s=queue.poll();
+             System.out.println(s+" ");
+             Iterator<Integer>i=adj[s].listIterator();
+             while(i.hasNext()){
+                 int n=i.next();
+                 if(!visited[n]){
+                     visited[n]=true;
+                     queue.add(n);
+                 }
+             }
+         }
+     }
+    public static void main(String[] args) {
+         Graph obj=new Graph(5);
+         obj.addedge(0,1);
+        obj.addedge(1,4);
+        obj.addedge(1,2);
+        obj.addedge(2,3);
+        obj.addedge(4,3);
+        System.out.println("Breadth first search");
+        obj.BFS(0);
     }
 }
