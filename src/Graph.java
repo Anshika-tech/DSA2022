@@ -31,7 +31,7 @@ public class Graph {
     }
 }*/
 //Breadth first search.
-import java.util.*;
+/*import java.util.*;
 public class Graph{
     private int V;
     private LinkedList<Integer> adj[];
@@ -72,5 +72,47 @@ public class Graph{
         obj.addedge(4,3);
         System.out.println("Breadth first search");
         obj.BFS(0);
+    }
+}
+*/
+//Depth first search
+import java.util.*;
+public class Graph{
+    int V;
+    LinkedList<Integer>adj[];
+    public Graph(int v){
+        V=v;
+        adj=new LinkedList[v];
+        for(int i=0;i<v;i++){
+            adj[i]=new LinkedList();
+        }
+    }
+    void addedge(int v,int w){
+        adj[v].add(w);
+    }
+    void DFSutil(int s,boolean visited[]){
+        visited[s]=true;
+        System.out.println(s+" ");
+        Iterator<Integer>i=adj[s].listIterator();
+        while(i.hasNext()){
+            int n=i.next();
+            if(!visited[n]){
+                DFSutil(n,visited);
+            }
+        }
+    }
+    void DFS(int v){
+        boolean visited[]=new boolean[V];
+        DFSutil(v,visited);
+    }
+    public static void main(String[] args) {
+            Graph obj=new Graph(4);
+            obj.addedge(0,1);
+           obj.addedge(0,2);
+           obj.addedge(1,2);
+            obj.addedge(2,0);
+           obj.addedge(2,3);
+           obj.addedge(3,3);
+           obj.DFS(2);
     }
 }
