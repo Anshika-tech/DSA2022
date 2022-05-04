@@ -76,7 +76,7 @@ public class Graph{
 }
 */
 //Depth first search
-import java.util.*;
+/*import java.util.*;
 public class Graph{
     int V;
     LinkedList<Integer>adj[];
@@ -114,5 +114,27 @@ public class Graph{
            obj.addedge(2,3);
            obj.addedge(3,3);
            obj.DFS(2);
+    }
+}
+*/
+//Adjacancy matrix implementation of graph.
+import java.util.Scanner;
+public class Graph{
+    public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+        int a[][]=new int[6][6];
+        int u,v;
+         for(int i=0;i<5;i++){
+             u=sc.nextInt();
+             v=sc.nextInt();
+             a[u][v]=1;
+             a[v][u]=1;
+         }
+        for(int i=0;i<5;i++){
+            for(int j=0;j<5;j++){
+                System.out.print(a[i][j]+ " ");
+            }
+            System.out.println();
+        }
     }
 }
